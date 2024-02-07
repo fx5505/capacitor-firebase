@@ -101,10 +101,25 @@ public typealias AuthStateChangedObserver = () -> Void
                 completion(nil, error)
                 return
             }
-            let claims = result?.getClaims() ?? [:]
-            let result = GetIdTokenResult(token: "test", claims: "asd")
+            let result = GetIdTokenResult(token: result?.token ?? "")
             completion(result, nil)
         })
+    }
+
+    @objc func getUserClaims(completion: @escaping ([String: Any]?, Error?) -> Void) {
+        guard let user = self.getCurrentUser() else {
+            let error = RuntimeError(self.plugin.errorNoUserSignedIn)
+            completion(nil, error)
+            return
+        }
+        user.getIDTokenResult(forcingRefresh: true) { (result, error) in
+            if let error = error {
+                completion(nil, error)
+                return
+            }
+            let claims = result?.claims
+            completion(claims, nil)
+        }
     }
 
     @objc func getTenantId() -> String? {

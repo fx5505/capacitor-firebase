@@ -579,7 +579,6 @@ export interface GetIdTokenResult {
    * @since 0.1.0
    */
   token: string;
-  claims: Object;
 }
 
 /**

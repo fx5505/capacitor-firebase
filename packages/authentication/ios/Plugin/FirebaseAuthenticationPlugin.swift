@@ -153,6 +153,10 @@ public class FirebaseAuthenticationPlugin: CAPPlugin {
         })
     }
 
+    @objc func getUserClaims(_ call: CAPPluginCall) {
+        implementation?.getUserClaims(call)
+    }
+
     @objc func getRedirectResult(_ call: CAPPluginCall) {
         call.reject("Not available on iOS.")
     }
