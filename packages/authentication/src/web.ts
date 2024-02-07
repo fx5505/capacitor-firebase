@@ -187,10 +187,12 @@ export class FirebaseAuthenticationWeb
     }
     const idToken = await auth.currentUser.getIdToken(options?.forceRefresh);
     const idTokenResult = await auth.currentUser.getIdTokenResult();
+
     const result: GetIdTokenResult = {
       token: idToken || '',
       claims: idTokenResult.claims || {},
     };
+
     return result;
   }
 
