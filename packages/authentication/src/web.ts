@@ -192,7 +192,7 @@ export class FirebaseAuthenticationWeb
     return result;
   }
 
-  public async getUserClaims(): Promise<any> {
+  public async getCustomClaims(): Promise<any> {
     const auth = getAuth();
     const currentUser = auth.currentUser;
     if (!currentUser) {

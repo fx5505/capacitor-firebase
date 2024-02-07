@@ -154,7 +154,11 @@ public class FirebaseAuthenticationPlugin: CAPPlugin {
     }
 
     @objc func getUserClaims(_ call: CAPPluginCall) {
-        implementation?.getUserClaims(call)
+        let claims = implementation?.getUserClaims(call)
+
+        var result = JSObject()
+        result["claims"] = claims ?? NSNull()
+        call.resolve(result)
     }
 
     @objc func getRedirectResult(_ call: CAPPluginCall) {
