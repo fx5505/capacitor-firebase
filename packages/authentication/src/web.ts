@@ -192,6 +192,16 @@ export class FirebaseAuthenticationWeb
     return result;
   }
 
+  public async getUserClaims(): Promise<any> {
+    const auth = getAuth();
+    const currentUser = auth.currentUser;
+    if (!currentUser) {
+      throw new Error(FirebaseAuthenticationWeb.ERROR_NO_USER_SIGNED_IN);
+    }
+    const idTokenResult = await currentUser.getIdTokenResult(true);
+    return idTokenResult.claims;
+  }
+
   public async getRedirectResult(): Promise<SignInResult> {
     const auth = getAuth();
     const userCredential = await getRedirectResult(auth);

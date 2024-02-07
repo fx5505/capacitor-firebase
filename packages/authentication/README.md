@@ -378,6 +378,7 @@ const useEmulator = async () => {
 * [`deleteUser()`](#deleteuser)
 * [`getCurrentUser()`](#getcurrentuser)
 * [`getIdToken(...)`](#getidtoken)
+* [`getCustomClaims()`](#getcustomclaims)
 * [`getRedirectResult()`](#getredirectresult)
 * [`getTenantId()`](#gettenantid)
 * [`isSignInWithEmailLink(...)`](#issigninwithemaillink)
@@ -555,10 +556,10 @@ Fetches the Firebase Auth ID Token for the currently signed-in user.
 --------------------
 
 
-### getRedirectResult()
+### getCustomClaims()
 
 ```typescript
-getRedirectResult() => Promise<SignInResult>
+getCustomClaims() => Promise<unknown>
 ```
 
 Returns the <a href="#signinresult">`SignInResult`</a> from the redirect-based sign-in flow.
@@ -568,9 +569,20 @@ If no redirect operation was called, returns a <a href="#signinresult">`SignInRe
 
 Only available for Web.
 
-**Returns:** <code>Promise&lt;<a href="#signinresult">SignInResult</a>&gt;</code>
+**Returns:** <code>Promise&lt;unknown&gt;</code>
 
 **Since:** 1.3.0
+
+--------------------
+
+
+### getRedirectResult()
+
+```typescript
+getRedirectResult() => Promise<SignInResult>
+```
+
+**Returns:** <code>Promise&lt;<a href="#signinresult">SignInResult</a>&gt;</code>
 
 --------------------
 
