@@ -186,8 +186,10 @@ export class FirebaseAuthenticationWeb
       throw new Error(FirebaseAuthenticationWeb.ERROR_NO_USER_SIGNED_IN);
     }
     const idToken = await auth.currentUser.getIdToken(options?.forceRefresh);
+    const idTokenResult = await auth.currentUser.getIdTokenResult();
     const result: GetIdTokenResult = {
       token: idToken || '',
+      claims: idTokenResult.claims || {},
     };
     return result;
   }
