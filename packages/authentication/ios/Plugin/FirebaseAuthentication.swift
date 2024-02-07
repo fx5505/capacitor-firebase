@@ -102,7 +102,7 @@ public typealias AuthStateChangedObserver = () -> Void
                 return
             }
             let claims = result?.getClaims() ?? [:]
-            let result = GetIdTokenResult(token: result?.token, claims: "asd")
+            let result = GetIdTokenResult(token: "test", claims: "asd")
             completion(result, nil)
         })
     }
