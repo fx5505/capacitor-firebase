@@ -98,8 +98,8 @@ export interface FirebaseAuthenticationPlugin {
    *
    * @since 1.3.0
    */
-  getCustomClaims(): Promise<unknown>;
   getRedirectResult(): Promise<SignInResult>;
+  getCustomClaims(): Promise<unknown>;
   /**
    * Get the tenant id.
    *
