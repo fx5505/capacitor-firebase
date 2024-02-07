@@ -106,7 +106,7 @@ public typealias AuthStateChangedObserver = () -> Void
         })
     }
 
-    @objc func getUserClaims(completion: @escaping ([String: Any]?, Error?) -> Void) {
+    @objc func getCustomClaims(completion: @escaping ([String: Any]?, Error?) -> Void) {
         guard let user = self.getCurrentUser() else {
             let error = RuntimeError(self.plugin.errorNoUserSignedIn)
             completion(nil, error)

@@ -153,8 +153,8 @@ public class FirebaseAuthenticationPlugin: CAPPlugin {
         })
     }
 
-    @objc func getUserClaims(_ call: CAPPluginCall) {
-        let claims = implementation?.getUserClaims(call)
+    @objc func getCustomClaims(_ call: CAPPluginCall) {
+        let claims = implementation?.getCustomClaims(call)
 
         var result = JSObject()
         result["claims"] = claims ?? NSNull()
